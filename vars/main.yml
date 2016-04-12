@@ -1,14 +1,14 @@
 ---
 outgoing:
-  name: name
+  name: "{{ vhost.name }}"
   size: 512mb
   region: nyc3
   image: centos-7-0-x64
   domain:
-    name: "{{ vhosts.homepage.name }}"
+    name: "{{ vhost.homepage.name }}"
   key:
-    name: "serve"
-    id: "{{ secret.keyid }}"
+    name: "{{ secret.key.name}}"
+    id: "{{ secret.key.id }}"
 
 incoming:
   ip: "{{ drop.droplet.ip_address }}"

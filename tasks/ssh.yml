@@ -4,6 +4,7 @@
     api_token="{{ secret.token }}"
     command=ssh
     state=present
-    name="{{ outgoing.key.name }}"
-    ssh_pub_key="{{ secret.pubkey }}"
+    name="{{ secret.key.name }}"
+    ssh_pub_key="{{ secret.key.pub }}"
   register: do_ssh
+
