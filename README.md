@@ -30,20 +30,19 @@ vhost:
   name: "unique name of the droplet"
 ```
 
-Requirements
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
 Usage
 -----
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+The role self contained. However, it does require to be run on the localhost before the properties are accesible to other roles. You can change the associated `vhost.name` as detailed above to have multiple instances of the droplet.
 
 ``` yaml
-- hosts: servers
+- hosts: local
     roles:
-        - { role: username.rolename, x: 42 }
+        - digitalocean
+
+- hosts: do
+    roles:
+        - "other roles you want to use for provisioning"
 ```
 
 Author Information
