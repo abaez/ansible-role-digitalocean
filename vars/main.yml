@@ -4,8 +4,6 @@ outgoing:
   size: 512mb
   region: nyc3
   image: centos-7-0-x64
-  domain:
-    name: "{{ vhost.homepage.name }}"
   key:
     id: "{{ secret.key.id }}"
 

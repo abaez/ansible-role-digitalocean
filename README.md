@@ -24,6 +24,10 @@ secret:
     # required if you want to use 'ssh.yml' file
     pub: "{{ lookup('file', '~/.ssh/rsa.pub')}}"
     name: "name of the pubkey to be assigned with digitalocean"
+
+# droplet information
+vhost:
+  name: "unique name of the droplet"
 ```
 
 Requirements
