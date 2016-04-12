@@ -1,2 +1,14 @@
 ---
-# tasks file for template
+
+- name: update dopy
+  pip: name=dopy state=latest
+  become: yes
+
+- name: the ssh
+  include: "ssh.yml"
+
+- name: the droplets
+  include: "droplets.yml"
+
+#- name: make new domain
+  #include: "domain.yml"

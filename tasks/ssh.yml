@@ -1,0 +1,9 @@
+---
+- name: upload ssh key to digital ocean
+  digital_ocean:
+    api_token="{{ secret.token }}"
+    command=ssh
+    state=present
+    name="{{ outgoing.key.name }}"
+    ssh_pub_key="{{ secret.pubkey }}"
+  register: do_ssh

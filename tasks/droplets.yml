@@ -1,0 +1,23 @@
+---
+- name: make new droplet
+  digital_ocean:
+    api_token="{{ secret.token }}"
+    state=present
+    unique_name=yes
+    name="{{ outgoing.name }}"
+    size_id="{{ outgoing.size }}"
+    region_id="{{ outgoing.region }}"
+    ssh_key_ids="{{ outgoing.key.id }}"
+    image_id="{{ outgoing.image }}"
+  register: drop
+
+- name: ID
+  debug: msg="ID is {{ incoming.id }}"
+- name: IP
+  debug: msg="IP is {{ incoming.ip }}"
+
+- name: Add new droplet to inventory
+  add_host:
+    name="{{ incoming.ip }}"
+    groups=do
+

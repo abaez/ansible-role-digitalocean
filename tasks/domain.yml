@@ -1,0 +1,8 @@
+---
+- name: domain setup
+  digital_ocean_domain:
+    api_token="{{ secret.token }}"
+    state=present
+    name="{{ outgoing.domain.name }}"
+    id="{{ incoming.id }}"
+    ip="{{ incoming.ip }}"

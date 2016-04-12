@@ -1,2 +1,17 @@
 ---
-# vars file for template
+outgoing:
+  name: name
+  size: 512mb
+  region: nyc3
+  image: centos-7-0-x64
+  domain:
+    name: "{{ vhosts.homepage.name }}"
+  key:
+    name: "serve"
+    id: "{{ secret.keyid }}"
+
+incoming:
+  ip: "{{ drop.droplet.ip_address }}"
+  id: "{{ drop.droplet.id }}"
+  pick: "{{ do_ssh.ssh_key.id }}"
+
