@@ -8,12 +8,23 @@ A brief description of the role goes here.
 Description
 -----------
 
-Give a description
+The role builds a nyc3-512MiB-centos7 droplet. However, it is very easy to make multiple copies with different id for each droplet. This allows to build say a docker swarm monstrosity or any other internetworked desire you may have. I chose centos, since it's my preferred provisioning client to use. You can change it to whatever you desire, though you could probably use better services that involve theother os client (aka the billions of deb based provisioners out there).
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+You don't change any variables in this role. However, you do include files that would have the variables. The reason is to allow for ease in reproduction.
+
+``` yaml
+# secret (where you keep your pubkey and your token for digitalocean)
+secret:
+  token: "token for digitalocean"
+  key:
+    id: "the key id of the pubkey from digitalocean"
+    # required if you want to use 'ssh.yml' file
+    pub: "{{ lookup('file', '~/.ssh/rsa.pub')}}"
+    name: "name of the pubkey to be assigned with digitalocean"
+```
 
 Requirements
 ------------
