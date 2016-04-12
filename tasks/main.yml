@@ -1,8 +1,7 @@
 ---
 
-- name: update dopy
-  pip: name=dopy state=latest
-  become: yes
+- name: add dependencies
+  include: "dependencies.yml"
 
 - name: the ssh
   include: "ssh.yml"

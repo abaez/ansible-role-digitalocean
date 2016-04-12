@@ -1,0 +1,25 @@
+---
+- name: install pip
+  pacman: name=pip state=latest
+  when: ansible_os_family == "Archlinux"
+
+- name: install pip
+  yum: name=pip state=latest
+  when: ansible_os_family == "Redhat"
+
+- name: install pip
+  zypper: name=pip state=latest
+  when: ansible_os_family == "Suse"
+
+- name: install python
+  apt: name=python state=latest
+  when: ansible_os_family == "Debian"
+
+- name: install pip
+  shell: curl -sSL https://bootstrap.pypa.io/get-pip.py | python
+  when: ansible_os_family == "Debian"
+
+- name: update dopy
+  pip: name=dopy state=latest
+  become: yes
+
