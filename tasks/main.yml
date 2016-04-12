@@ -6,9 +6,17 @@
 
 - name: the ssh
   include: "ssh.yml"
+  when: secret.key.name != ""
 
-- name: the droplets
+- name: the droplets with ssh key
   include: "droplets.yml"
+  vars:
+    outgoing.key.id: "{{ do_ssh.ssh_key.id }}"
+  when: do_ssh.ssh_key.id != ""
+
+- name: the droplet run
+  include: "droplets.yml"
+  when: do_ssh == ""
 
 #- name: make new domain
   #include: "domain.yml"

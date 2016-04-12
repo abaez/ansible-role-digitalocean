@@ -7,7 +7,6 @@ outgoing:
   domain:
     name: "{{ vhost.homepage.name }}"
   key:
-    name: "{{ secret.key.name}}"
     id: "{{ secret.key.id }}"
 
 incoming:
